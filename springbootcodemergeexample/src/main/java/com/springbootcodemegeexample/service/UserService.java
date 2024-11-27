@@ -11,6 +11,9 @@ public interface UserService {
     //create user
     public User createUser(User user);
 
+    //get user list
+    public List<User> getList();
+
 
 
 }

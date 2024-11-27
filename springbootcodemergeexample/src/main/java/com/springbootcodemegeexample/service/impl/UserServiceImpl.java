@@ -6,6 +6,9 @@ import com.springbootcodemegeexample.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @AllArgsConstructor
 public class UserServiceImpl implements UserService {
@@ -15,6 +18,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public User createUser(User user) {
         return userRepository.save(user);
+    }
+
+    @Override
+    public List<User> getList() {
+        List<User> user = userRepository.findAll();
+        return user.stream().map(list-> list).collect(Collectors.toList());
     }
 
 }
